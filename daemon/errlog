@@ -1,0 +1,136 @@
+*** Starting uWSGI 2.0.19.1 (64bit) on [Fri Sep 17 02:33:25 2021] ***
+compiled with version: Clang 11.0.1 on 02 March 2021 12:48:48
+os: Darwin-20.6.0 Darwin Kernel Version 20.6.0: Wed Jun 23 00:26:31 PDT 2021; root:xnu-7195.141.2~5/RELEASE_X86_64
+nodename: calypso.fios-router.home
+machine: x86_64
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 8
+current working directory: /Users/Vlad/Demo/daemon
+detected binary path: /Users/Vlad/anaconda3/envs/readgssi/bin/uwsgi
+chdir() to /Users/Vlad/Demo/daemon
+your processes number limit is 2784
+your memory page size is 4096 bytes
+detected max file descriptor number: 256
+lock engine: OSX spinlocks
+thunder lock: disabled (you can enable it with --thunder-lock)
+uWSGI http bound on 127.0.0.1:5000 fd 4
+uwsgi socket 0 bound to TCP address 127.0.0.1:59745 (port auto-assigned) fd 3
+Python version: 3.7.10 | packaged by conda-forge | (default, Feb 19 2021, 15:59:12)  [Clang 11.0.1 ]
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0x7fb0e240a930
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 218736 bytes (213 KB) for 2 cores
+*** Operational MODE: preforking ***
+ModuleNotFoundError: No module named 'daemon.py'; 'daemon' is not a package
+unable to load app 0 (mountpoint='') (callable not found or import error)
+*** no app loaded. going in full dynamic mode ***
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 98555)
+spawned uWSGI worker 1 (pid: 98558, cores: 1)
+spawned uWSGI worker 2 (pid: 98559, cores: 1)
+spawned uWSGI http 1 (pid: 98560)
+--- no python application found, check your startup logs for errors ---
+[pid: 98558|app: -1|req: -1/1] 127.0.0.1 () {54 vars in 1009 bytes} [Fri Sep 17 02:33:30 2021] GET / => generated 21 bytes in 0 msecs (HTTP/1.1 500) 2 headers in 83 bytes (1 switches on core 0)
+--- no python application found, check your startup logs for errors ---
+[pid: 98558|app: -1|req: -1/2] 127.0.0.1 () {54 vars in 963 bytes} [Fri Sep 17 02:33:30 2021] GET /favicon.ico => generated 21 bytes in 0 msecs (HTTP/1.1 500) 2 headers in 83 bytes (1 switches on core 0)
+--- no python application found, check your startup logs for errors ---
+[pid: 98559|app: -1|req: -1/3] 127.0.0.1 () {54 vars in 1009 bytes} [Fri Sep 17 02:33:48 2021] GET / => generated 21 bytes in 1 msecs (HTTP/1.1 500) 2 headers in 83 bytes (0 switches on core 0)
+--- no python application found, check your startup logs for errors ---
+[pid: 98559|app: -1|req: -1/4] 127.0.0.1 () {54 vars in 963 bytes} [Fri Sep 17 02:33:48 2021] GET /favicon.ico => generated 21 bytes in 0 msecs (HTTP/1.1 500) 2 headers in 83 bytes (1 switches on core 0)
+--- no python application found, check your startup logs for errors ---
+[pid: 98559|app: -1|req: -1/5] 127.0.0.1 () {54 vars in 1009 bytes} [Fri Sep 17 02:34:52 2021] GET / => generated 21 bytes in 0 msecs (HTTP/1.1 500) 2 headers in 83 bytes (0 switches on core 0)
+--- no python application found, check your startup logs for errors ---
+[pid: 98558|app: -1|req: -1/6] 127.0.0.1 () {54 vars in 963 bytes} [Fri Sep 17 02:34:52 2021] GET /favicon.ico => generated 21 bytes in 0 msecs (HTTP/1.1 500) 2 headers in 83 bytes (1 switches on core 0)
+SIGINT/SIGQUIT received...killing workers...
+gateway "uWSGI http 1" has been buried (pid: 98560)
+worker 2 buried after 0 seconds
+worker 1 buried after 0 seconds
+goodbye to uWSGI.
+*** Starting uWSGI 2.0.19.1 (64bit) on [Fri Sep 17 02:36:34 2021] ***
+compiled with version: Clang 11.0.1 on 02 March 2021 12:48:48
+os: Darwin-20.6.0 Darwin Kernel Version 20.6.0: Wed Jun 23 00:26:31 PDT 2021; root:xnu-7195.141.2~5/RELEASE_X86_64
+nodename: calypso.fios-router.home
+machine: x86_64
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 8
+current working directory: /Users/Vlad/Demo/daemon
+detected binary path: /Users/Vlad/anaconda3/envs/readgssi/bin/uwsgi
+chdir() to /Users/Vlad/Demo/daemon
+your processes number limit is 2784
+your memory page size is 4096 bytes
+detected max file descriptor number: 256
+lock engine: OSX spinlocks
+thunder lock: disabled (you can enable it with --thunder-lock)
+uWSGI http bound on 127.0.0.1:5000 fd 4
+uwsgi socket 0 bound to TCP address 127.0.0.1:59954 (port auto-assigned) fd 3
+Python version: 3.7.10 | packaged by conda-forge | (default, Feb 19 2021, 15:59:12)  [Clang 11.0.1 ]
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0x7f8562f05450
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 218736 bytes (213 KB) for 2 cores
+*** Operational MODE: preforking ***
+ModuleNotFoundError: No module named 'daemon.py'; 'daemon' is not a package
+unable to load app 0 (mountpoint='') (callable not found or import error)
+unable to find "application" callable in file ./daemon.py
+unable to load app 0 (mountpoint='') (callable not found or import error)
+*** no app loaded. going in full dynamic mode ***
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 98582)
+spawned uWSGI worker 1 (pid: 98585, cores: 1)
+spawned uWSGI worker 2 (pid: 98586, cores: 1)
+spawned uWSGI http 1 (pid: 98587)
+--- no python application found, check your startup logs for errors ---
+[pid: 98585|app: -1|req: -1/1] 127.0.0.1 () {54 vars in 1009 bytes} [Fri Sep 17 02:36:40 2021] GET / => generated 21 bytes in 0 msecs (HTTP/1.1 500) 2 headers in 83 bytes (1 switches on core 0)
+--- no python application found, check your startup logs for errors ---
+[pid: 98586|app: -1|req: -1/2] 127.0.0.1 () {54 vars in 963 bytes} [Fri Sep 17 02:36:40 2021] GET /favicon.ico => generated 21 bytes in 0 msecs (HTTP/1.1 500) 2 headers in 83 bytes (1 switches on core 0)
+--- no python application found, check your startup logs for errors ---
+[pid: 98585|app: -1|req: -1/3] 127.0.0.1 () {54 vars in 1009 bytes} [Fri Sep 17 02:36:41 2021] GET / => generated 21 bytes in 0 msecs (HTTP/1.1 500) 2 headers in 83 bytes (0 switches on core 0)
+--- no python application found, check your startup logs for errors ---
+[pid: 98586|app: -1|req: -1/4] 127.0.0.1 () {54 vars in 963 bytes} [Fri Sep 17 02:36:41 2021] GET /favicon.ico => generated 21 bytes in 0 msecs (HTTP/1.1 500) 2 headers in 83 bytes (1 switches on core 0)
+SIGINT/SIGQUIT received...killing workers...
+gateway "uWSGI http 1" has been buried (pid: 98587)
+worker 2 buried after 0 seconds
+worker 1 buried after 0 seconds
+goodbye to uWSGI.
+*** Starting uWSGI 2.0.19.1 (64bit) on [Fri Sep 17 02:42:56 2021] ***
+compiled with version: Clang 11.0.1 on 02 March 2021 12:48:48
+os: Darwin-20.6.0 Darwin Kernel Version 20.6.0: Wed Jun 23 00:26:31 PDT 2021; root:xnu-7195.141.2~5/RELEASE_X86_64
+nodename: calypso.fios-router.home
+machine: x86_64
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 8
+current working directory: /Users/Vlad/Demo/daemon
+detected binary path: /Users/Vlad/anaconda3/envs/readgssi/bin/uwsgi
+chdir() to /Users/Vlad/Demo/daemon
+your processes number limit is 2784
+your memory page size is 4096 bytes
+detected max file descriptor number: 256
+lock engine: OSX spinlocks
+thunder lock: disabled (you can enable it with --thunder-lock)
+uWSGI http bound on 127.0.0.1:5000 fd 4
+uwsgi socket 0 bound to TCP address 127.0.0.1:60280 (port auto-assigned) fd 3
+Python version: 3.7.10 | packaged by conda-forge | (default, Feb 19 2021, 15:59:12)  [Clang 11.0.1 ]
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0x7f9087406590
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 218736 bytes (213 KB) for 2 cores
+*** Operational MODE: preforking ***
+ModuleNotFoundError: No module named 'daemon.py'; 'daemon' is not a package
+unable to load app 0 (mountpoint='') (callable not found or import error)
+*** no app loaded. going in full dynamic mode ***
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 98624)
+spawned uWSGI worker 1 (pid: 98627, cores: 1)
+spawned uWSGI worker 2 (pid: 98628, cores: 1)
+spawned uWSGI http 1 (pid: 98629)
+SIGINT/SIGQUIT received...killing workers...
+gateway "uWSGI http 1" has been buried (pid: 98629)
+worker 2 buried after 0 seconds
+worker 1 buried after 0 seconds
+goodbye to uWSGI.
