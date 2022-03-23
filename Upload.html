@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8" />
+    <title>NDE Files Upload</title>
+    <script>
+    //Context={};              // User structure, includes SessionId
+    var userid = window.Context.userid;
+    //window.myUserName;
+    
+        //document.getElementById("myUserName").value = myUserName;
+        //document.getElementById("User").value = User;
+    
+    // Upload the files using ajax request.
+    // Handle the upload response data from server and show uploaded images.
+    function showPhotos(response) {
+        if (response.length > 0) {
+            var uploadImages = '';
+            for (var i=0; i < response.length; i++) {
+                var upImage = response[i];
+                if (upImage.status) {
+                    uploadImages += '<div class="col-xs-6 col-md-4 thumbnail"><img src="' + upImage.publicPath + '" alt="' + upImage.filename  + '"></div>';
+                } else {
+                    uploadImages += '<div class="col-xs-6 col-md-4 thumbnail">Invalid file type - ' + upImage.filename  + '</div>';
+                }
+            }
+            $('#uploadedPhotos').html(uploadImages);
+        } else {
+            alert('No file uploaded/wrong data type.')
+        }
+    }
+    
+    function uploadPhotos(formData) {
+        
+        $.ajax({
+            url: '/upload_files/',//?userid=' + window.Context.userid + '&datatype=' + $('#nde_type').val(), 
+            method: 'post',
+            data: formData,
+            processData: false,
+            contentType: false,
+            xhr: function () {
+                var xhr = new XMLHttpRequest();
+                xhr.upload.addEventListener('progress', function (event) {
+                    var progressBar = $('.progress-bar');
+                    if (event.lengthComputable) {
+                        var percent = (event.loaded / event.total) * 100;
+                        progressBar.width(percent + '%');
+                        if (percent === 100) {
+                            progressBar.removeClass('active');
+                        }
+                    }
+                });
+                return xhr;
+            }
+        }).done(showPhotos).fail(function (xhr, status) {
+            alert(status);
+        });
+    }
+    
+    // Set the progress bar to 0 when a file(s) is selected.
+    $('#files').on('change', function () {
+        $('.progress-bar').width('0%');
+    });
+    
+    // handle files upload on form submit.
+    $('#upload-files').on('submit', function (event) {
+        var files = $('#files').get(0).files,
+            file_h = $('#file_h').get(0).files,
+            formData = new FormData();
+    
+        event.preventDefault();
+
+        if (file_h.length > 0) {
+        // Append the header file to formData as the first one
+            formData.append('file_h', file_h[0], file_h[0].name);
+        } else if ( files.length == 0 ) {
+            alert('Select at least 1 Data File to Upload or Data Header file to update.');
+            return false;
+        }
+        // Append the files to the formData.
+        for (var i=0; i < files.length; i++) {
+            var file = files[i];
+            formData.append('files', file, file.name);
+        }
+        formData.append('base_x', document.getElementById('base_x').value);
+        formData.append('base_y', document.getElementById('base_y').value);
+        
+        formData.append('datatype', $('#nde_type').val());
+        formData.append('userid', window.Context.userid);
+        // Handle Photos Upload
+        uploadPhotos(formData);
+    });
+    </script>  
+  </head>
+  
+
+  <body>
+    <div class="container">         
+        <h2>NDE Files Upload</h2>  
+            <br/><br/>      
+        <!-- uploaded files Container -->
+            <div class="row">
+                    <div class="col-md-12">                 
+                            <div id="uploadedPhotos" class="row"></div>
+                    </div>
+            </div>          
+            <div class="row">
+                <div class="col-md-4"></div>
+                <div class="col-md-12">                 
+                    <!-- File upload Form -->
+                    <form id="upload-files" method="post" action="/upload_files" enctype="multipart/form-data">
+                        <div class="row">
+                            <label for="nde_type">NDE data type:</label>
+                            <select name="nde_type" id="nde_type">
+                              <option value="ER">ER</option>
+                              <option value="GPR">GPR</option>
+                              <option value="IE">IE</option>
+                              <option value="IR">IR</option>
+                              <option value="USW">USW</option>
+                            </select>
+                            
+                            <div style="display:flex; flex-direction: row;">
+                                <label for="file_h">NDE Header File:</label>
+                                <input id="file_h" type="file" name="file_h" accept=".xml,.json"/>   
+                            </div>
+                            <label for="base_x">Base Point. X:</label>
+                            <input type="number" id="base_x" name="base_x" style="width:10"/>
+                            <label for="base_y"> Y:</label>
+                            <input type="number" id="base_y" name="base_y" style="width:10"/>
+                            <div style="display:flex; flex-direction: row;">
+                                <label for="files">NDE Data Files:</label><input id="files" type="file" name="files" multiple="multiple" accept=".xml,.csv,.dzt,.txt,.json"/>     
+                            </div>                                       
+                        </div>
+                        <input type="hidden" id="userid" name="userid" value="" />
+                        <br/>
+                        
+                        <!-- Progress Bar -->
+                        <input class="btn btn-primary" type="submit" name="Photo Uploads" value="Upload" />
+                        <div class="row">
+                            <div class="col-md-4">
+                                    <div class="progress">
+                                            <div class="progress-bar progress-b r-striped active" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%">
+                                                <span class="sr-only"></span>
+                                            </div>
+                                    </div>
+                            </div>
+                        </div>                  
+                        
+                    </form>
+                    <br/>                           
+                    <!-- Progress Bar -->
+                </div>
+                <div class="col-md-4"></div>
+            </div>          
+            <br/><br/>      
+    </div>
+
+
+  </body>
+
+</html>
